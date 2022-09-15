@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A simple calculator with beatifuls lights!">
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <!-- --- -->
+
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <!-- --- -->
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Neon Calculator</title>
+</head>
+<body>
+  <div class="background"></div>
+  <label for="theme-color" id="hint-title" class="hint-animation">&lt;- experimente mudar as cores das luzes!</label>
+  <input type="color" id="theme-color" value="#08efff" onchange="changeThemeColor()">
+
+  <!-- CALCULATOR CODE -->
+  <div class="calculator">
+    <div class="calculator-painel"></div>
+    <div class="calculator-grid">
+      <button class="calculator-button alternative-button" title="Porcentagem">%</button>
+      <button class="calculator-button alternative-button">(</button>
+      <button class="calculator-button alternative-button">)</button>
+      <button class="calculator-button alternative-button" title="Dividir">/</button>
+      <button class="calculator-button">7</button>
+      <button class="calculator-button">8</button>
+      <button class="calculator-button">9</button>
+      <button class="calculator-button alternative-button" title="Multiplicar">*</button>
+      <button class="calculator-button">4</button>
+      <button class="calculator-button">5</button>
+      <button class="calculator-button">6</button>
+      <button class="calculator-button alternative-button" title="Subtrair">-</button>
+      <button class="calculator-button">1</button>
+      <button class="calculator-button">2</button>
+      <button class="calculator-button">3</button>
+      <button class="calculator-button alternative-button" title="Somar">+</button>
+      <button class="calculator-button">.</button>
+      <button class="calculator-button">0</button>
+      <button class="calculator-button" title="Apagar" onclick="deleteChar()">&lt;-</button>
+      <button class="calculator-button alternative-button" onclick="showResult()">=</button>
+    </div>
+  </div>
+  <!-- --- -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
