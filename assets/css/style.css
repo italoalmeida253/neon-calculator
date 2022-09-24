@@ -6,53 +6,70 @@
   font: inherit;
   font-size: 100%;
   animation-delay: 0;
-  transition: .2s;
+  transition: .6s;
 }
 /* --- */
 
 /* ROOT */
 :root {
-  --theme-color: #08efff;
-  --bg-theme-color: #08efff30;
+  --body-bg: #121212;
+  --button-color: #161616;
+  --number-color: #181818;
+  --calculator-bg: #212121;
+  --calc-painel-bg: #161616;
+  --calc-config-bg: #222222;
+  --modal-bg: #222222;
+  --error-color: #ff4d4d;
+  --lights-color: #08efff;
+  --bg-lights-color: #08efff30;
 }
 /* --- */
 
 /* BODY STYLE */
 body {
-  background-color: #121212;
+  background-color: var(--body-bg);
   overflow-y: hidden;
 }
-#theme-color {
-  position: absolute;
-  top: 10px;
-  left: 10px;
+#lights-color {
   border: none;
   background-color: transparent;
   width: 50px;
   height: 40px;
 }
-#hint-title {
+#theme-color {
+  margin: 0 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.calculator-config {
   position: absolute;
-  color: var(--theme-color);
-  top: 20px;
-  left: 70px;
+  top: 10px;
+  left: 10px;
+  background-color: var(--calc-config-bg);
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+}
+.error-modal {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--modal-bg);
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-align: center;
+  transition: .8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.show-error-modal {
+  top: 10px;
+}
+.error-title {
+  color: var(--error-color);
   font-family: 'Fira Code', monospace;
   font-weight: 400;
-  font-size: 13px;
-  animation: fadeAnimation 1s linear 5s forwards;
-}
-#hint-title::after {
-  content: "";
-  position: absolute;
-  left: -5px;
-  top: -5px;
-  width: 328px;
-  height: 28px;
-  background-color: var(--theme-color);
-  animation: hintAnimation 1s cubic-bezier(0.075, 0.82, 0.165, 1) .2s forwards;
-}
-.fade-animation {
-  animation: fadeAnimation 1s linear 1s forwards;
+  font-size: 20px;
 }
 /* --- */
 
@@ -72,7 +89,7 @@ body {
   font-family: 'Fira Code', monospace;
   font-weight: 400;
   font-size: 50px;
-  color: #181818;
+  color: var(--number-color);
 }
 .number:hover {
   cursor: default;
@@ -88,9 +105,9 @@ body {
   padding: 10px;
   border-radius: 10px;
   width: 308px;
-  background-color: #212121;
+  background-color: var(--calculator-bg);
   animation: calculatorShadowAnimation 6s ease infinite alternate;
-  border: 2px solid var(--theme-color);
+  border: 2px solid var(--lights-color);
 }
 .calculator-painel {
   width: 100%;
@@ -98,20 +115,17 @@ body {
   overflow-y: hidden;
   overflow-x: auto;
   height: 65px;
-  background-color: #161616;
+  background-color: var(--calc-painel-bg);
   margin-bottom: 10px;
   text-align: right;
   line-height: 65px;
   font-size: 28px;
-  color: var(--theme-color);
+  color: var(--lights-color);
   padding-right: 10px;
   font-family: 'Fira Code', monospace;
   font-weight: 400;
   letter-spacing: 2px;
   cursor: default;
-}
-.calculator-painel::-webkit-scrollbar {
-  display: none;
 }
 .calculator-grid {
   display: grid;
@@ -125,12 +139,12 @@ body {
   font-size: 18px;
   font-family: 'Fira Code', monospace;
   font-weight: 400;
-  background-color: #161616;
+  background-color: var(--button-color);
   cursor: pointer;
-  color: var(--theme-color);
+  color: var(--lights-color);
 }
 .alternative-button {
-  background-color: var(--bg-theme-color);
+  background-color: var(--bg-lights-color);
 }
 /* --- */
 
@@ -141,27 +155,17 @@ body {
 /* KEYFRAMES */
 @keyframes turnOnNumber {
   from {
-    color: var(--theme-color);
-    text-shadow: 0 0 50px var(--theme-color);
+    color: var(--lights-color);
+    text-shadow: 0 0 50px var(--lights-color);
   }
   to {
-    color: #181818;
+    color: var(--number-color);
     text-shadow: none;
   }
 }
 @keyframes calculatorShadowAnimation {
   to {
-    box-shadow: 0 0 100px var(--bg-theme-color);
-  }
-}
-@keyframes hintAnimation {
-  to {
-    width: 0;
-  }
-}
-@keyframes fadeAnimation {
-  to {
-    color: transparent;
+    box-shadow: 0 0 100px var(--bg-lights-color);
   }
 }
 /* --- */
