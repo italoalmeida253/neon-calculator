@@ -21,16 +21,22 @@
 </head>
 <body>
   <div class="background"></div>
-  <label for="theme-color" id="hint-title" class="hint-animation">&lt;- experimente mudar as cores das luzes!</label>
-  <input type="color" id="theme-color" value="#08efff" onchange="changeThemeColor()">
+
+  <div class="calculator-config">
+    <input type="color" id="lights-color" value="#08efff" onchange="changeLightColor()" title="Mudar a cor das luzes">
+  </div>
+
+  <div class="error-modal">
+    <span class="error-title">Operação inválida!</span>
+  </div>
 
   <!-- CALCULATOR CODE -->
   <div class="calculator">
     <div class="calculator-painel"></div>
     <div class="calculator-grid">
+      <button class="calculator-button alternative-button">C</button>
+      <button class="calculator-button alternative-button" onclick="addPar()">()</button>
       <button class="calculator-button alternative-button" title="Porcentagem">%</button>
-      <button class="calculator-button alternative-button">(</button>
-      <button class="calculator-button alternative-button">)</button>
       <button class="calculator-button alternative-button" title="Dividir">/</button>
       <button class="calculator-button">7</button>
       <button class="calculator-button">8</button>
